@@ -16,7 +16,7 @@ export default function DesignA() {
     
     if (activeCategory === 'iepl') return matchesSearch && airport.line_type.includes('专线');
     if (activeCategory === 'budget') return matchesSearch && (airport.price_summary.includes('¥3') || airport.price_summary.includes('¥10') || airport.price_summary.includes('¥20'));
-    if (activeCategory === 'high_rating') return matchesSearch && airport.rating >= 9.6;
+    if (activeCategory === 'high_rating') return matchesSearch && (airport.rating ?? 9.5) >= 9.5;
     return matchesSearch;
   });
 
@@ -192,7 +192,7 @@ export default function DesignA() {
                       </td>
                       <td className="py-4 px-4">
                         <span className="font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
-                          {ap.rating}
+                          {ap.status === 'normal' ? '正常' : '待核实'}
                         </span>
                       </td>
                       <td className="py-4 px-4 text-right text-xs text-slate-400 font-mono">
@@ -212,9 +212,9 @@ export default function DesignA() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <h3 className="font-bold text-slate-900 text-lg flex items-center gap-2">
                 <BarChart2 size={18} className="text-blue-600" />
-                综合评价 TOP 3
+                编辑精选推荐
               </h3>
-              <span className="text-xs text-slate-400">基于 5 维加权算法</span>
+              <span className="text-xs text-slate-400">结合线路与服务指标</span>
             </div>
             <div className="space-y-3">
               {mockAirports.slice(0, 3).map((ap, idx) => (
@@ -229,7 +229,7 @@ export default function DesignA() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-blue-600 text-sm">{ap.rating} 分</div>
+                    <div className="font-bold text-blue-600 text-sm">{ap.status === 'normal' ? '正常运营' : '待核实'}</div>
                     <div className="text-xs text-slate-400">{ap.price_summary}</div>
                   </div>
                 </div>

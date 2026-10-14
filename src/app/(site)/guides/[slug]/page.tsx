@@ -25,8 +25,18 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: article.title,
     description: article.summary,
+    authors: [{ name: article.author }],
     alternates: {
       canonical: `https://jichangsou.com/guides/${article.slug}`,
+    },
+    openGraph: {
+      type: 'article',
+      url: `https://jichangsou.com/guides/${article.slug}`,
+      title: article.title,
+      description: article.summary,
+      publishedTime: article.created_at,
+      modifiedTime: article.updated_at,
+      authors: [article.author],
     },
   };
 }

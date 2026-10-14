@@ -1,9 +1,14 @@
 import React, { Suspense } from 'react';
 import SearchPage from '@/views/SearchPage';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: '搜索结果',
+export const metadata: Metadata = {
+  title: '搜索结果 - 机场搜',
   description: '机场搜全量数据库实时检索结果。',
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://jichangsou.com/search',
   },

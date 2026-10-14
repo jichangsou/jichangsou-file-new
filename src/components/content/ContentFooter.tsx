@@ -69,7 +69,7 @@ function getUnifiedAllArticles(): UnifiedArticle[] {
   return [...normalizedMock, ...normalizedBlog];
 }
 
-// 推荐理由提取 (严格基于 fixture 客观字段)
+// 推荐理由提取 (严格基于站内已记录客观字段)
 function getAirportReasonBadge(airport: Airport, articleTags: string[]): string {
   const lineType = airport.line_type.toUpperCase();
   if (lineType.includes('IEPL') || lineType.includes('IPLC')) {

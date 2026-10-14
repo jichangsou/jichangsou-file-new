@@ -191,8 +191,8 @@ export default function DesignB() {
                     <div className="text-xs text-[#787E8F] font-mono mt-0.5">{ap.line_type}</div>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono text-xl font-bold text-amber-400">{ap.rating}</span>
-                    <span className="text-[10px] text-[#787E8F] block">加权评分</span>
+                    <span className="font-mono text-sm font-bold text-amber-400">{ap.status === 'normal' ? '正常运营' : '待核实'}</span>
+                    <span className="text-[10px] text-[#787E8F] block">复核状态</span>
                   </div>
                 </div>
 

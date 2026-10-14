@@ -1,10 +1,7 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import type { Metadata } from 'next';
 import { 
-  Search, 
   Database, 
   ArrowRight, 
   ShieldCheck, 
@@ -16,41 +13,32 @@ import {
   Sparkles,
   ChevronRight,
   Filter,
-  Grid
+  Grid,
+  GitCompare
 } from 'lucide-react';
-import { mockAirports, mockArticles } from '@/data/mock';
+import { mockAirports, mockArticles, mockCompareItems } from '@/data/mock';
+import { getEffectiveMonthlyPrice } from '@/utils/pricing';
+import HeroSearchForm from '@/components/HeroSearchForm';
+
+export const metadata: Metadata = {
+  title: '2026机场推荐与机场搜索｜便宜稳定机场、IEPL/IPLC、VLESS、Clash、ChatGPT机场',
+  description: '机场搜提供中文机场搜索、机场推荐与机场评测，整理价格套餐、节点地区、IEPL/IPLC/BGP线路、VLESS/Trojan/Shadowsocks协议、Clash/Shadowrocket客户端，以及ChatGPT等AI与流媒体使用信息。',
+  alternates: {
+    canonical: 'https://jichangsou.com',
+  },
+  openGraph: {
+    title: '2026机场推荐与机场搜索｜便宜稳定机场、IEPL/IPLC、VLESS、Clash、ChatGPT机场',
+    description: '机场搜提供中文机场搜索、机场推荐与机场评测，整理价格套餐、节点地区、IEPL/IPLC/BGP线路、VLESS/Trojan/Shadowsocks协议、Clash/Shadowrocket客户端，以及ChatGPT等AI与流媒体使用信息。',
+    url: 'https://jichangsou.com',
+    type: 'website',
+  },
+};
 
 export default function HomePage() {
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showMoreTags, setShowMoreTags] = useState(false);
-
-  // Handle Hero Search Form Submission
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
-    }
-  };
-
-  // Filter airports based on search query
-  const filteredAirports = mockAirports.filter(ap => {
-    return (
-      ap.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      ap.line_type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      ap.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      ap.aliases.some(a => a.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
-  });
-
-  // Featured 6 airports for homepage database preview
-  const featuredAirports = filteredAirports.slice(0, 6);
-
-  // Filter articles into guides and wiki
+  const featuredAirports = mockAirports.slice(0, 6);
   const guides = mockArticles.filter(a => a.type === 'guide').slice(0, 3);
   const wikis = mockArticles.filter(a => a.type === 'wiki').slice(0, 3);
 
-  // Popular Topics Data List
   const popularTopics = [
     { title: '2026机场推荐', href: '/topics/airport-recommendations', desc: '综合资料精选' },
     { title: '便宜机场', href: '/topics/cheap-airports', desc: '低价套餐与性价比' },
@@ -98,44 +86,14 @@ export default function HomePage() {
             找机场，先搜一下。
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle Description */}
           <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
             提供机场推荐、机场评测与机场搜索，整理价格套餐、流量、香港/日本/新加坡/美国节点、IEPL/IPLC/BGP 线路、VLESS/Trojan/Shadowsocks 协议、Clash/Shadowrocket/sing-box 客户端，以及 ChatGPT、Claude、Gemini 与流媒体使用信息。
           </p>
 
-          {/* Main Search Bar Form */}
+          {/* Main Search Bar Client Form */}
           <div className="relative max-w-2xl mx-auto pt-2">
-            <form
-              onSubmit={handleSearchSubmit}
-              className="relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white border border-slate-300 hover:border-slate-400 focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-100/70 rounded-2xl shadow-sm hover:shadow transition-all p-1.5 gap-1.5 sm:gap-2"
-            >
-              <div className="flex items-center flex-1 px-3 py-1.5 sm:py-0">
-                <Search className="text-slate-400 shrink-0" size={18} />
-                <input
-                  type="text"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="搜索机场名称或关键词（如 WgetCloud、IEPL、VLESS）"
-                  className="w-full py-2 px-3 text-slate-900 placeholder:text-slate-400 text-sm sm:text-base bg-transparent border-none outline-none font-sans"
-                />
-                {searchTerm && (
-                  <button 
-                    type="button"
-                    onClick={() => setSearchTerm('')}
-                    className="mr-1 px-2 py-0.5 text-xs rounded-md bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors shrink-0"
-                  >
-                    清除
-                  </button>
-                )}
-              </div>
-              <button 
-                type="submit"
-                className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold rounded-xl text-sm transition-all shrink-0 shadow-sm flex items-center justify-center gap-1.5 min-h-[42px] group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-1"
-              >
-                <span>即刻搜索</span>
-                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </form>
+            <HeroSearchForm />
 
             {/* Link to Advanced Filters */}
             <div className="pt-2 text-right">
@@ -148,127 +106,123 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Quick Filter Chips (First & Second Layers) */}
-            <div className="space-y-2 mt-2 text-xs">
+            {/* Crawlable Search & Ranking Quick Links (Fully prerendered for SEO) */}
+            <div className="space-y-2 mt-3 text-xs">
               <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
                 <span className="text-slate-400 font-medium mr-1">热门搜索:</span>
                 <Link
-                  href="/airports"
+                  href="/topics/airport-recommendations"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   机场推荐
                 </Link>
                 <Link
-                  href="/ranking/cheap"
+                  href="/topics/cheap-airports"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   便宜机场
                 </Link>
                 <Link
-                  href="/ranking/stable"
+                  href="/topics/stable-airports"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   稳定机场
                 </Link>
                 <Link
-                  href="/search?q=IEPL"
+                  href="/topics/iepl-airports"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   IEPL / IPLC机场
                 </Link>
                 <Link
-                  href="/search?q=VLESS"
+                  href="/topics/vless-airports"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   VLESS机场
                 </Link>
                 <Link
-                  href="/search?q=Clash"
+                  href="/guides"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
-                  Clash机场
+                  Clash教程
                 </Link>
                 <Link
-                  href="/ranking/ai"
+                  href="/topics/chatgpt-airports"
                   className="px-2.5 py-1 rounded-lg border bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-blue-300 hover:text-blue-600 transition-all min-h-[30px] inline-flex items-center font-medium"
                 >
                   ChatGPT机场
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => setShowMoreTags(!showMoreTags)}
-                  className="px-2 py-1 text-slate-400 hover:text-blue-600 transition-colors font-medium inline-flex items-center gap-0.5 cursor-pointer ml-1"
+                <Link
+                  href="/compare"
+                  className="px-2.5 py-1 rounded-lg border bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 transition-all min-h-[30px] inline-flex items-center font-bold"
                 >
-                  <span>{showMoreTags ? '收起' : '更多'}</span>
-                  <span className="text-[10px]">{showMoreTags ? '▲' : '▼'}</span>
-                </button>
+                  <GitCompare size={12} className="mr-1" /> 机场对比
+                </Link>
               </div>
 
-              {/* Second Layer Expanded Search Chips */}
-              {showMoreTags && (
-                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1 animate-fadeIn">
-                  <Link
-                    href="/search?q=香港"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    香港节点机场
-                  </Link>
-                  <Link
-                    href="/search?q=日本"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    日本节点机场
-                  </Link>
-                  <Link
-                    href="/search?q=新加坡"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    新加坡节点机场
-                  </Link>
-                  <Link
-                    href="/search?q=美国"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    美国节点机场
-                  </Link>
-                  <Link
-                    href="/search?q=Shadowrocket"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    Shadowrocket机场
-                  </Link>
-                  <Link
-                    href="/search?q=Trojan"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    Trojan机场
-                  </Link>
-                  <Link
-                    href="/search?q=Shadowsocks"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    Shadowsocks机场
-                  </Link>
-                  <Link
-                    href="/search?q=Claude"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    Claude机场
-                  </Link>
-                  <Link
-                    href="/search?q=Gemini"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    Gemini机场
-                  </Link>
-                  <Link
-                    href="/search?q=sing-box"
-                    className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
-                  >
-                    sing-box机场
-                  </Link>
-                </div>
-              )}
+              {/* Second Layer Tags - Prerendered directly for crawler indexing */}
+              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1">
+                <Link
+                  href="/topics/hong-kong-nodes"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  香港节点机场
+                </Link>
+                <Link
+                  href="/topics/japan-nodes"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  日本节点机场
+                </Link>
+                <Link
+                  href="/topics/airport-recommendations"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  新加坡节点机场
+                </Link>
+                <Link
+                  href="/topics/stable-airports"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  美国节点机场
+                </Link>
+                <Link
+                  href="/guides"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  Shadowrocket教程
+                </Link>
+                <Link
+                  href="/topics/vless-airports"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  Trojan协议
+                </Link>
+                <Link
+                  href="/topics/vless-airports"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  Shadowsocks协议
+                </Link>
+                <Link
+                  href="/topics/chatgpt-airports"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  Claude AI机场
+                </Link>
+                <Link
+                  href="/topics/chatgpt-airports"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  Gemini AI机场
+                </Link>
+                <Link
+                  href="/guides"
+                  className="px-2.5 py-1 rounded-lg border bg-slate-50/80 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-blue-600 transition-all min-h-[28px] inline-flex items-center text-[11px]"
+                >
+                  sing-box教程
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -387,14 +341,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            {/* Column 1: Top Rated */}
+            {/* Column 1: Featured Picks */}
             <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                   <h3 className="font-bold text-slate-900 text-base flex items-center gap-1.5">
-                    🏆 机场精选推荐
+                    🏆 编辑精选推荐
                   </h3>
-                  <span className="text-[11px] font-mono text-blue-600 font-bold">TOP 3</span>
+                  <span className="text-[11px] font-mono text-blue-600 font-bold">FEATURED</span>
                 </div>
                 <div className="space-y-3">
                   {mockAirports.slice(0, 3).map((ap, idx) => (
@@ -417,7 +371,7 @@ export default function HomePage() {
               </div>
               <div className="pt-3 border-t border-slate-100 text-right">
                 <Link href="/ranking/best" className="text-xs font-bold text-blue-600 hover:underline inline-flex items-center gap-1 min-h-[36px]">
-                  查看完整推荐榜 <ChevronRight size={12} />
+                  查看全量精选大盘 <ChevronRight size={12} />
                 </Link>
               </div>
             </div>
@@ -427,12 +381,23 @@ export default function HomePage() {
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                   <h3 className="font-bold text-slate-900 text-base flex items-center gap-1.5">
-                    💡 高性价比榜
+                    💡 性价比精选
                   </h3>
                   <span className="text-[11px] font-mono text-emerald-600 font-bold">VALUE</span>
                 </div>
                 <div className="space-y-3">
-                  {mockAirports.slice(3, 6).map((ap, idx) => (
+                  {[...mockAirports]
+                    .sort((a, b) => {
+                      const pA = getEffectiveMonthlyPrice(a);
+                      const pB = getEffectiveMonthlyPrice(b);
+                      if (pA === null && pB === null) return a.id.localeCompare(b.id);
+                      if (pA === null) return 1;
+                      if (pB === null) return -1;
+                      if (pA !== pB) return pA - pB;
+                      return a.id.localeCompare(b.id);
+                    })
+                    .slice(0, 3)
+                    .map((ap, idx) => (
                     <Link key={ap.id} href={`/airport/${ap.slug}`} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-400 transition-colors focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none">
                       <div className="flex items-center gap-2.5">
                         <span className="w-5 h-5 rounded-full bg-emerald-600 text-white font-mono font-bold text-[11px] flex items-center justify-center shrink-0">
@@ -444,7 +409,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <span className="font-mono font-bold text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
-                        {ap.rating}
+                        {ap.price_summary.split('/')[0]}
                       </span>
                     </Link>
                   ))}
@@ -479,14 +444,14 @@ export default function HomePage() {
                         </div>
                       </div>
                       <span className="font-mono font-bold text-indigo-600 text-xs bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 shrink-0">
-                        {ap.rating}
+                        专线
                       </span>
                     </Link>
                   ))}
                 </div>
               </div>
               <div className="pt-3 border-t border-slate-100 text-right">
-                <Link href="/search?q=IEPL" className="text-xs font-bold text-indigo-600 hover:underline inline-flex items-center gap-1 min-h-[36px]">
+                <Link href="/topics/iepl-airports" className="text-xs font-bold text-indigo-600 hover:underline inline-flex items-center gap-1 min-h-[36px]">
                   查看更多专线机场 <ChevronRight size={12} />
                 </Link>
               </div>
@@ -605,7 +570,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 6: Popular Topics Preview Module (Section 六 & 七 Spec) */}
+        {/* Section 6: Popular Topics Index */}
         <section id="popular-topics" className="scroll-mt-20 space-y-6">
           <div className="border-b border-slate-200 pb-4">
             <div className="text-xs font-mono text-blue-600 font-bold uppercase tracking-wider mb-1">
@@ -635,7 +600,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 7: Methodology Disclosure Statement (Section 五 Spec) */}
+        {/* Section 7: Methodology Disclosure Statement */}
         <section id="methodology" className="scroll-mt-20 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
           <div className="flex items-center gap-2 text-blue-400 font-bold text-base font-serif">
             <ShieldCheck size={20} className="shrink-0" />
@@ -655,7 +620,6 @@ export default function HomePage() {
         </section>
 
       </main>
-
     </div>
   );
 }

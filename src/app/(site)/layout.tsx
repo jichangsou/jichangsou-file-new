@@ -38,7 +38,7 @@ export default function SiteLayout({
               <Link href="/guides" className="hover:text-blue-600 transition-colors">使用教程</Link>
               <Link href="/wiki" className="hover:text-blue-600 transition-colors">网络百科</Link>
               <Link href="/blog" className="hover:text-blue-600 transition-colors">博客</Link>
-              <Link href="/admin" className="hover:text-blue-600 transition-colors opacity-40">后台系统</Link>
+              <Link href="/methodology" className="hover:text-blue-600 transition-colors">数据说明</Link>
             </div>
           </div>
 

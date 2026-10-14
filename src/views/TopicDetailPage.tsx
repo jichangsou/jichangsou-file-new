@@ -193,7 +193,7 @@ export default function TopicDetailPage({ slug }: TopicDetailPageProps) {
               {config.shortTitle}匹配机场列表 ({matchedAirports.length})
             </h2>
             <span className="text-xs text-slate-500 dark:text-slate-400">
-              数据源自真实 fixture 实时运算
+              根据站内已记录的套餐、线路与节点字段自动筛选
             </span>
           </div>
 

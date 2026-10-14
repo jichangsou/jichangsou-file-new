@@ -143,8 +143,8 @@ export default function DesignC() {
                     <div className="text-xs font-mono text-cyan-400/90 mt-0.5">{ap.line_type}</div>
                   </div>
                   <div className="text-right font-mono">
-                    <span className="text-lg font-bold text-cyan-400">{ap.rating}</span>
-                    <span className="text-[10px] text-[#6E7681] block">SCORE</span>
+                    <span className="text-sm font-bold text-cyan-400">{ap.price_summary}</span>
+                    <span className="text-[10px] text-[#6E7681] block">PRICE</span>
                   </div>
                 </div>
 

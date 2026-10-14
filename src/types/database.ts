@@ -11,7 +11,7 @@ export interface Airport {
   description: string;
   website: string;
   status: AirportStatusType;
-  rating: number; // 综合评分 (10分制)
+  rating?: number; // 可选参考评分
   traffic_summary: string; // 例如: "120GB/月起"
   price_summary: string;   // 例如: "¥20.00/月起"
   line_type: string;       // 例如: "BGP入口 + IEPL企业专线"

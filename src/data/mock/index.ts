@@ -22,7 +22,6 @@ export const mockAirports: Airport[] = [
     "description": "隐形人机场已运营约 2 年，主打企业级 IEPL 纯专线传输与 BGP 智能调度，宣称全节点 1 倍率计费、不限速且常规周期套餐不限制设备数量。本文整理了隐形人机场的基础信息、周期与不限时套餐明细及选购注意事项。",
     "website": "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso",
     "status": "normal",
-    "rating": 9.9,
     "traffic_summary": "144 GB / 月起",
     "price_summary": "¥24 / 月起",
     "line_type": "企业级 IEPL 纯专线（支持云端多链路 / BGP 智能调度优化，全节点 1 倍率计费）",
@@ -49,7 +48,6 @@ export const mockAirports: Airport[] = [
     "description": "暮光加速成立于 2025 年，由新加坡海外团队运营，采用 VLESS 协议及专线传输，覆盖香港、台湾、日本、新加坡及美国等热门地区节点。本文汇总了暮光加速的基础信息、套餐价格表、测速表现及购买注意事项。",
     "website": "https://twilight.net/#/register",
     "status": "normal",
-    "rating": 9.8,
     "traffic_summary": "120 GB起",
     "price_summary": "¥20 / 月起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -73,10 +71,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "飞猫云"
     ],
-    "description": "飞猫云提供全 IPLC 专线网络加速服务，最高带宽支持 2.5Gbps。全节点 1 倍速率、高峰期不降速且不限制设备连接数量。节点覆盖全球多个主要地区，原生 IP 解锁主流流媒体与 AI 服务，同时提供灵活的周期套餐、不限时流量包及独享企业定制方案。",
+    "description": "根据服务商公开宣称，飞猫云提供全 IPLC 专线网络加速服务，最高带宽支持 2.5Gbps。全节点 1 倍速率、具备较高可用带宽且不限制设备连接数量。节点覆盖全球多个主要地区，原生 IP 解锁主流流媒体与 AI 服务，同时提供灵活的周期套餐、不限时流量包及独享企业定制方案。",
     "website": "https://flycat1.flycatvipaff.cc/#/?code=3NlSNiJl",
     "status": "normal",
-    "rating": 9.7,
     "traffic_summary": "150GB / 月起",
     "price_summary": "¥25 / 月起",
     "line_type": "全 IPLC 专线网络，提供最高 2.5Gbps 稳定速率",
@@ -103,7 +100,6 @@ export const mockAirports: Airport[] = [
     "description": "微风网络是一家高性价比的入门级网络加速服务商。服务提供约 61 个节点，采用 IEPL 专线、IPLC 专线与 BGP 中继架构，解锁主流流媒体及 AI 工具。门槛低至 10 元/月，非常适合学生党、轻度翻墙用户及文献资料查询需求。",
     "website": "https://wep01.breezenetaff.com/#/?code=JHqHSog8",
     "status": "normal",
-    "rating": 9.6,
     "traffic_summary": "200GB / 月起",
     "price_summary": "¥27 / 月起",
     "line_type": "IEPL 专线、IPLC 专线、BGP 中继",
@@ -130,7 +126,6 @@ export const mockAirports: Airport[] = [
     "description": "发布时间：2026-07-23   > 文章信息：约 2896 字 \\| 阅读约 10 分钟 \\| 标签：科学上网、VPN、机场推荐、浪网 \\| 浏览：66 \\| 喜欢：0",
     "website": "https://jichangsou.com",
     "status": "normal",
-    "rating": 9.5,
     "traffic_summary": "150GB/月起",
     "price_summary": "¥30 / 年起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -157,7 +152,6 @@ export const mockAirports: Airport[] = [
     "description": "梯子云成立于 2025 年，主打 IEPL 专线传输、三网入口优化与全平台自研客户端。提供通用订阅及一键连接客户端，覆盖香港、日本、新加坡、美国、台湾等地区的 60+ 节点，支持主流流媒体与 AI 工具解锁。本文整理了梯子云的基础信息、周期与不限时套餐明细及选购建议。",
     "website": "https://asfeoasf.ladderttt.sbs/#/?code=rhKeiJTM",
     "status": "normal",
-    "rating": 9.4,
     "traffic_summary": "125 GB / 月起",
     "price_summary": "¥25 / 年起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -184,7 +178,6 @@ export const mockAirports: Airport[] = [
     "description": "📖 约 2102 字 大约 7 分钟 | 🏷️ 机场推荐 科学上网 Trojan 不限时流量包 | 👁️ 111 | 📅 2026-07-23",
     "website": "https://yinxing4.lingdongaff.com/#/?code=mW96wgI4",
     "status": "normal",
-    "rating": 9.3,
     "traffic_summary": "100GB/月起",
     "price_summary": "¥20 / 年起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -211,7 +204,6 @@ export const mockAirports: Airport[] = [
     "description": "FlyV 是一家深耕游戏加速与跨境专线的高性能机场。全线采用 IEPL 游戏与流媒体双特化专线，全节点 1x 计费且无限速、不限设备数。完美支持 4K/8K 影音与 ChatGPT 等 AI 工具。",
     "website": "https://rtu23u5.flyvttt.sbs/#/?code=28mmffKv",
     "status": "normal",
-    "rating": 9.2,
     "traffic_summary": "150G 起步大流量，性价比优选（推荐）起",
     "price_summary": "¥25 / 月起",
     "line_type": "IEPL 专线（游戏与流媒体双特化）",
@@ -262,10 +254,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "Sogo 云"
     ],
-    "description": "Sogo云全线采用 IPLC 专线网络，单节点最高速率达 2.5Gbps。所有节点均为 1x 倍率且晚高峰不限速，完全不限制在线设备/客户端数量。全线支持原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "description": "根据服务商公开宣称，Sogo云全线采用 IPLC 专线网络，单节点最高速率达 2.5Gbps。所有节点均为 1x 倍率且具备较高可用带宽，完全不限制在线设备/客户端数量。全线支持原生 IP 资源，支持解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
     "website": "https://wzjc.sogoyunaff.cc/#/?code=Da28sVAh",
     "status": "normal",
-    "rating": 8.9,
     "traffic_summary": "150GB / 月起",
     "price_summary": "¥25 / 月起",
     "line_type": "全 IPLC 专线（单节点最高速率 2.5Gbps）",
@@ -292,7 +283,6 @@ export const mockAirports: Airport[] = [
     "description": "SSONE 是一家主打性价比的网络加速服务商，采用 BGP 隧道中转线路，支持 SS/V2Ray/Trojan 多种协议。提供 1天 1G 免费试用，月付低至 10元/60G，解锁主流流媒体及 AI 工具，支持多设备同时在线。",
     "website": "https://m.ssone.io/#/register?code=GeTpX1Qx",
     "status": "normal",
-    "rating": 8.8,
     "traffic_summary": "标准流量起",
     "price_summary": "¥10 / 月起",
     "line_type": "BGP 隧道中转",
@@ -319,7 +309,6 @@ export const mockAirports: Airport[] = [
     "description": "U1S1 采用 BGP 三网智能优化 + IEPL 专线出口，全平台支持 SS (Shadowsocks) 协议。全套餐维持不限速、不限制在线设备数量，且官方每两个月固定扩容 +200Mbps 带宽以保障晚高峰冗余。完美秒开解锁 Netflix、Disney+、HBO、DAZN 等流媒体及 ChatGPT、Claude、Midjourney 等 AI 平台。",
     "website": "https://pkdj7.vipaff.cc/#/?code=SrIisw0u",
     "status": "normal",
-    "rating": 8.7,
     "traffic_summary": "120GB / 月起",
     "price_summary": "¥20 / 月起",
     "line_type": "BGP 三网智能优化 + IEPL 专线出口",
@@ -346,9 +335,8 @@ export const mockAirports: Airport[] = [
     "description": "WgetCloud（原 GaCloud）是一家老牌高端加速服务商。平台采用 BGP 服务器接入与亚马逊 Global Accelerator 专线，支持 Trojan 协议，主打低延迟与高稳定性。",
     "website": "https://invite.wgetcloud.ltd/auth/register?code=1i8Pgu",
     "status": "normal",
-    "rating": 8.6,
-    "traffic_summary": "¥79.00 / 月 ｜ ¥225.00 / 季 ｜ ¥758.00 / 年起",
-    "price_summary": "¥0 / 年起",
+    "traffic_summary": "200 GB / 月起",
+    "price_summary": "¥79 / 月起",
     "line_type": "BGP 中转 / 企业级专线",
     "pros": [
       "提供专线高速中转",
@@ -373,7 +361,6 @@ export const mockAirports: Airport[] = [
     "description": "一翻云全线配备 IEPL 企业级专线，拥有顶级带宽冗余与低延迟表现。全套餐不限制在线设备与客户端数量，提供自研客户端支持一键连接，完美解锁主流流媒体及各类 AI 智能工具。",
     "website": "https://wzjc.1flyunaff.cc/#/?code=cX5Pnju4",
     "status": "normal",
-    "rating": 8.5,
     "traffic_summary": "150GB / 月起",
     "price_summary": "¥20 / 月起",
     "line_type": "全 IEPL 企业级专线（最高级带宽冗余）",
@@ -397,10 +384,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "二猫云"
     ],
-    "description": "二猫云全线配备 IEPL 专线网络，单节点峰值速率最高可达 2.5Gbps。所有节点均维持 1x 倍率且晚高峰不降速，完全不限制在线设备/客户端数量。全线采用原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "description": "根据服务商公开宣称，二猫云全线配备 IEPL 专线网络，单节点峰值速率最高可达 2.5Gbps。所有节点均维持 1x 倍率且具备较高可用带宽，完全不限制在线设备/客户端数量。全线采用原生 IP 资源，支持解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
     "website": "https://waaa.2maoyunaff.cc/#/?code=dzgbKSSJ",
     "status": "normal",
-    "rating": 8.4,
     "traffic_summary": "130GB / 月起",
     "price_summary": "¥20 / 月起",
     "line_type": "全 IEPL 专线（单节点最高速率 2.5Gbps）",
@@ -424,10 +410,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "光年梯"
     ],
-    "description": "光年梯（Guangnianti）全线基于 IPLC/IEPL 专线网络 架构构建，最高单节点带宽可达 2.5Gbps。全节点按 1x 倍率扣费，晚高峰不限速，且不限制同时在线客户端/设备数量。节点配备纯净原生 IP 资源，全面解锁 Netflix、Disney+、HBO 等主流流媒体及 ChatGPT、Claude、Gemini、TikTok 等 AI 与社媒平台。",
+    "description": "根据服务商公开宣称，光年梯（Guangnianti）全线基于 IPLC/IEPL 专线网络 架构构建，最高单节点带宽可达 2.5Gbps。全节点按 1x 倍率扣费，具备较高可用带宽，且不限制同时在线客户端/设备数量。节点配备纯净原生 IP 资源，全面解锁 Netflix、Disney+、HBO 等主流流媒体及 ChatGPT、Claude、Gemini、TikTok 等 AI 与社媒平台。",
     "website": "https://ggmq.gntaff.com/#/?code=oTY2f32o",
     "status": "normal",
-    "rating": 8.3,
     "traffic_summary": "110GB / 月起",
     "price_summary": "¥18 / 年起",
     "line_type": "全程 IPLC 专线（最高 2.5Gbps 速率） / 独享 IEPL 专线",
@@ -451,10 +436,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "光速云"
     ],
-    "description": "光速云（Lightspeed Cloud）全线采用全球 IPLC 专线网络接入，单节点最高速率可达 2.5Gbps。节点统一 1 倍率计费、晚高峰满速且不限制设备连接数量。线路搭配原生 IP，轻松解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
+    "description": "根据服务商公开宣称，光速云（Lightspeed Cloud）全线采用全球 IPLC 专线网络接入，单节点最高速率可达 2.5Gbps。节点统一 1 倍率计费、晚高峰满速且不限制设备连接数量。线路搭配原生 IP，轻松解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
     "website": "https://mdlky.gsyaff.com/#/?code=BEXBm84c",
     "status": "normal",
-    "rating": 8.2,
     "traffic_summary": "148GB / 月起",
     "price_summary": "¥23 / 月起",
     "line_type": "全球 IPLC 专线（单节点速率最高可达 2.5Gbps）",
@@ -481,7 +465,6 @@ export const mockAirports: Airport[] = [
     "description": "全球云主打出海线路与流媒体解锁服务，采用企业级 IPLC/IEPL 专线传输、智能负载均衡与三网入口优化。提供 70+ 节点并基于 VLESS 协议，支持常见的第三方客户端（Shadowrocket、Clash、V2Ray 等）以及多平台场景使用。本文整理了全球云的基础信息、周期套餐、不限时流量包及选购建议。",
     "website": "https://vbfdvfj1.quanqiugttt1.club/#/?code=NKII9ZkH`",
     "status": "normal",
-    "rating": 8.1,
     "traffic_summary": "标准流量起",
     "price_summary": "¥20 / 月起",
     "line_type": "IPLC / IEPL 专线（宣称配有智能负载均衡与三网入口优化）",
@@ -505,7 +488,7 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "可信云 Kexin Cloud"
     ],
-    "description": "可信云全线搭载 60+ IEPL 专线节点，覆盖港/台/新/日/美等核心地区。线路维持高品质稳定输出，完全不限制在线设备与客户端数量。全线采用原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "description": "根据服务商公开宣称，可信云全线搭载 60+ IEPL 专线节点，覆盖港/台/新/日/美等核心地区。线路维持高品质稳定输出，完全不限制在线设备与客户端数量。全线采用原生 IP 资源，支持解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
     "website": "https://work.kosingaff.com/#/?code=JDeEfOcq",
     "status": "normal",
     "rating": 8,
@@ -535,7 +518,6 @@ export const mockAirports: Airport[] = [
     "description": "唯兔云全线基于 IPLC 专线 + VLESS 协议 打造，并配有备用直连节点。全节点 1x 速率扣费，不限速且不限制客户端/设备连接数量。依靠纯净原生 IP 资源，全面解锁 Netflix、Hulu、HBO、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒平台。",
     "website": "https://fast.v2yunvipaff.com/#/?code=4WmxN4Tr",
     "status": "normal",
-    "rating": 7.9,
     "traffic_summary": "100GB / 月起",
     "price_summary": "¥14.9 / 月起",
     "line_type": "全 IPLC 专线 + 备用直连节点",
@@ -562,7 +544,6 @@ export const mockAirports: Airport[] = [
     "description": "本指南针对大哥云（DeGeYun）网络加速服务进行整体解析，包含注册入口、各档位套餐配置、节点使用建议、常见疑问及全平台客户端支持列表。",
     "website": "https://a03.dgy02.com/#/register?code=X8MBmftq",
     "status": "normal",
-    "rating": 7.8,
     "traffic_summary": "100 GB/月起",
     "price_summary": "¥19 / 月起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -589,7 +570,6 @@ export const mockAirports: Airport[] = [
     "description": "宇宙云配备 70+ 顶级 IEPL/IPLC 专线节点，覆盖港/台/新/日/美/马/德等核心地区。节点统一维持不限速，完全不限制设备与客户端在线数量。全线支持自研客户端一键连接，完美解锁各大主流流媒体及 ChatGPT、Claude、TikTok 等 AI 与社媒工具。",
     "website": "https://wzjc.yuzoucloud.cc/#/?code=4FJ182Jl",
     "status": "normal",
-    "rating": 7.7,
     "traffic_summary": "160GB / 月起",
     "price_summary": "¥25 / 月起",
     "line_type": "70+ 精品 IEPL/IPLC 专线节点",
@@ -613,10 +593,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "快狸 Kuaili Cloud"
     ],
-    "description": "快狸全线采用 全 IEPL 专线网络，单节点峰值带宽高达 2.5Gbps。全节点保持 1x 倍率 且晚高峰不降速，完全不限制在线设备与客户端数量。配备原生 IP 资源，完美解锁 Netflix、Disney+ 等流媒体及 ChatGPT、TikTok 等 AI 与社媒工具。",
+    "description": "根据服务商公开宣称，快狸全线采用 全 IEPL 专线网络，单节点峰值带宽高达 2.5Gbps。全节点保持 1x 倍率 且具备较高可用带宽，完全不限制在线设备与客户端数量。配备原生 IP 资源，支持解锁 Netflix、Disney+ 等流媒体及 ChatGPT、TikTok 等 AI 与社媒工具。",
     "website": "https://work.kuailicloud.cc/#/?code=xVU3Wv16",
     "status": "normal",
-    "rating": 7.6,
     "traffic_summary": "50GB / 月起",
     "price_summary": "¥15 / 月起",
     "line_type": "全 IEPL 专线网络 (单节点峰值 2.5Gbps)",
@@ -643,7 +622,6 @@ export const mockAirports: Airport[] = [
     "description": "无忧链接（WUYOU LINK）是一家运营约 1 年的网络加速服务商。服务主打不限速、不限制客户端使用，支持通用订阅协议及小火箭（Shadowrocket）等主流客户端，解锁常见流媒体与 AI 工具，提供多种周期套餐及一次性不限时流量包。",
     "website": "https://lsitel.worryfreettt.homes/#/?code=SaSZbwak",
     "status": "normal",
-    "rating": 7.5,
     "traffic_summary": "100 GB/月起",
     "price_summary": "¥12.92 / 年起",
     "line_type": "BGP 中转 / 企业级专线",
@@ -667,10 +645,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "星岛梦"
     ],
-    "description": "星岛梦采用全 IPLC/IEPL 专线网络接入，单节点峰值速率高达 2.5Gbps。全节点 1x 速率扣费，高峰时段不降速，且完全不限制客户端在线设备数量。原生 IP 支持完美解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
+    "description": "根据服务商公开宣称，星岛梦采用全 IPLC/IEPL 专线网络接入，单节点峰值速率高达 2.5Gbps。全节点 1x 速率扣费，高峰时段不降速，且完全不限制客户端在线设备数量。原生 IP 支持支持解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
     "website": "https://kfccbb.xingdaomeng.com/#/?code=0gckwZkN",
     "status": "normal",
-    "rating": 7.4,
     "traffic_summary": "150GB / 月起",
     "price_summary": "¥25 / 月起",
     "line_type": "全 IPLC / IEPL 专线（单节点速率最高可达 2.5Gbps）",
@@ -694,10 +671,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "极连云"
     ],
-    "description": "极连云全线接入 IPLC 专线 网络，单节点最高速率达 2.5Gbps。节点统一 1x 速率扣费且晚高峰不限速，完全不限制在线设备/客户端数量。全线搭配原生 IP 资源，完美解锁 Netflix 等主流流媒体及 ChatGPT、TikTok 等 AI/社媒应用。",
+    "description": "根据服务商公开宣称，极连云全线接入 IPLC 专线 网络，单节点最高速率达 2.5Gbps。节点统一 1x 速率扣费且具备较高可用带宽，完全不限制在线设备/客户端数量。全线搭配原生 IP 资源，支持解锁 Netflix 等主流流媒体及 ChatGPT、TikTok 等 AI/社媒应用。",
     "website": "https://kdjhao.jlyvipaff.com/#/?code=YCC3SRLe",
     "status": "normal",
-    "rating": 7.3,
     "traffic_summary": "标准流量起",
     "price_summary": "¥1 / 年起",
     "line_type": "全 IPLC 专线（单节点最高速率 2.5Gbps）",
@@ -724,7 +700,6 @@ export const mockAirports: Airport[] = [
     "description": "灵猫网络（Spirit Cat）于 2026 年上线运营，主打 IPLC 专线线路。服务宣传全节点 1 倍倍率、不限速且不限制设备连接数量，支持通用订阅导入及主流流媒体与 AI 工具解锁。",
     "website": "https://edp01.civetaff.com/#/?code=8n0vbtUD",
     "status": "normal",
-    "rating": 7.2,
     "traffic_summary": "150 GB起",
     "price_summary": "¥25 / 月起",
     "line_type": "IPLC 专线（宣传所有套餐均为 1 倍流量倍率）",
@@ -751,7 +726,6 @@ export const mockAirports: Airport[] = [
     "description": "赛博云机场是一家提供高速网络加速服务的平台，主打低延迟与高性价比。支持油管 8K 秒开，解锁主流流媒体与 AI 工具，线路涵盖 CN2/CMIN2/4837 高端专线及中转线路，节点覆盖全球多地。",
     "website": "https://saiboyun.pages.dev/",
     "status": "normal",
-    "rating": 7.1,
     "traffic_summary": "100 GB/月起",
     "price_summary": "¥3 / 月起",
     "line_type": "CN2 / CMIN2 / 4837 高端专线、高端直连、高速中转线路",
@@ -805,7 +779,6 @@ export const mockAirports: Airport[] = [
     "description": "边缘节点全线搭载 IPLC 专线网络，单节点峰值速率达 2.5Gbps。所有节点统一为 1x 倍率，晚高峰不降速，且完全不限制在线设备与客户端数量。全线采用原生 IP，流畅解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
     "website": "https://work.edgenovaaff.cc/#/?code=PCoJq5SC",
     "status": "normal",
-    "rating": 6.9,
     "traffic_summary": "30GB / 月起",
     "price_summary": "¥15 / 月起",
     "line_type": "全 IPLC 专线（最高带宽 2.5Gbps）",
@@ -829,10 +802,9 @@ export const mockAirports: Airport[] = [
     "aliases": [
       "速界 Speed World"
     ],
-    "description": "速界全线搭载 全 IPLC 专线网络，最高提供 2.5Gbps 稳定速率。全节点保持 1x 节点倍率 且晚高峰不降速，完全不限制设备在线数量与客户端连接数。全线配备原生 IP 线路，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社交平台。",
+    "description": "根据服务商公开宣称，速界全线搭载 全 IPLC 专线网络，最高提供 2.5Gbps 稳定速率。全节点保持 1x 节点倍率 且具备较高可用带宽，完全不限制设备在线数量与客户端连接数。全线配备原生 IP 线路，支持解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社交平台。",
     "website": "https://work.speedworldaff.cc/#/?code=rLgiidtU",
     "status": "normal",
-    "rating": 6.8,
     "traffic_summary": "50GB / 月起",
     "price_summary": "¥15 / 月起",
     "line_type": "全 IPLC 专线网络 (最高 2.5Gbps 稳定带宽)",
@@ -840,33 +812,6 @@ export const mockAirports: Airport[] = [
       "企业级 IPLC / IEPL 物理专线",
       "提供专线高速中转",
       "原生 IP 流媒体/AI 解锁支持"
-    ],
-    "cons": [
-      "高峰期丢包受本地网络质量影响",
-      "长周期套餐需注意服务稳定性"
-    ],
-    "last_checked": "2026-09-16",
-    "created_at": "2024-01-01",
-    "updated_at": "2026-09-16"
-  },
-  {
-    "id": "shanyue",
-    "name": "闪跃云 WgetCloud",
-    "slug": "shanyue",
-    "aliases": [
-      "闪跃云 WgetCloud"
-    ],
-    "description": "WgetCloud（原 GaCloud）是一家老牌高端网络加速服务商。平台采用 BGP 服务器接入与亚马逊 Global Accelerator 专线加速，支持 Trojan 等主流协议，主打低延迟与高稳定性。",
-    "website": "https://invite.wgetcloud.ltd/auth/register?code=1i8Pgu",
-    "status": "normal",
-    "rating": 6.7,
-    "traffic_summary": "¥79 / 月 ｜ ¥225 / 季 ｜ ¥758 / 年起",
-    "price_summary": "¥0 / 年起",
-    "line_type": "BGP 中转 / 企业级专线",
-    "pros": [
-      "提供专线高速中转",
-      "原生 IP 流媒体/AI 解锁支持",
-      "全平台客户端通用订阅导入"
     ],
     "cons": [
       "高峰期丢包受本地网络质量影响",
@@ -2480,6 +2425,45 @@ export const mockPlans: AirportPlan[] = [
     "updated_at": "2026-09-16"
   },
   {
+    "id": "wgetcloud-plan-1",
+    "airport_id": "wgetcloud",
+    "name": "基础专线 - 月付",
+    "price": 79,
+    "currency": "CNY",
+    "billing_period": "monthly",
+    "traffic": "200 GB / 月",
+    "device_limit": "不限制",
+    "description": "200GB 基础月付专线套餐",
+    "created_at": "2024-01-01",
+    "updated_at": "2026-09-16"
+  },
+  {
+    "id": "wgetcloud-plan-2",
+    "airport_id": "wgetcloud",
+    "name": "基础专线 - 季付",
+    "price": 225,
+    "currency": "CNY",
+    "billing_period": "quarterly",
+    "traffic": "200 GB / 月",
+    "device_limit": "不限制",
+    "description": "季付优惠套餐，折合月付 ¥75",
+    "created_at": "2024-01-01",
+    "updated_at": "2026-09-16"
+  },
+  {
+    "id": "wgetcloud-plan-3",
+    "airport_id": "wgetcloud",
+    "name": "基础专线 - 年付",
+    "price": 758,
+    "currency": "CNY",
+    "billing_period": "yearly",
+    "traffic": "200 GB / 月",
+    "device_limit": "不限制",
+    "description": "年付特惠套餐，折合月付 ¥63.17",
+    "created_at": "2024-01-01",
+    "updated_at": "2026-09-16"
+  },
+  {
     "id": "quanqiuyun-plan-1",
     "airport_id": "quanqiuyun",
     "name": "最低月付",
@@ -3880,45 +3864,6 @@ export const mockPlans: AirportPlan[] = [
     "traffic": "1.0TB / 月",
     "device_limit": "不限制",
     "description": "季付9折 ｜ 半年8折 ｜ 年付7折 ｜ 三年6折",
-    "created_at": "2024-01-01",
-    "updated_at": "2026-09-16"
-  },
-  {
-    "id": "shanyue-plan-1",
-    "airport_id": "shanyue",
-    "name": "基础专线",
-    "price": 0,
-    "currency": "CNY",
-    "billing_period": "yearly",
-    "traffic": "¥79 / 月 ｜ ¥225 / 季 ｜ ¥758 / 年",
-    "device_limit": "不限制",
-    "description": "160G/月（月付） ｜ 230G/月（季付） ｜ 280G/月（年付）",
-    "created_at": "2024-01-01",
-    "updated_at": "2026-09-16"
-  },
-  {
-    "id": "shanyue-plan-2",
-    "airport_id": "shanyue",
-    "name": "优质专线",
-    "price": 0,
-    "currency": "CNY",
-    "billing_period": "yearly",
-    "traffic": "¥89 / 月 ｜ ¥253 / 季 ｜ ¥854 / 年",
-    "device_limit": "不限制",
-    "description": "180G/月（月付） ｜ 250G/月（季付） ｜ 320G/月（年付）",
-    "created_at": "2024-01-01",
-    "updated_at": "2026-09-16"
-  },
-  {
-    "id": "shanyue-plan-3",
-    "airport_id": "shanyue",
-    "name": "精品专线",
-    "price": 0,
-    "currency": "CNY",
-    "billing_period": "yearly",
-    "traffic": "¥99 / 月 ｜ ¥281 / 季 ｜ ¥950 / 年",
-    "device_limit": "不限制",
-    "description": "200G/月（月付） ｜ 270G/月（季付） ｜ 360G/月（年付）",
     "created_at": "2024-01-01",
     "updated_at": "2026-09-16"
   }
@@ -5392,60 +5337,6 @@ export const mockNodes: AirportNode[] = [
     "node_count": 13,
     "supported": true,
     "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-1",
-    "airport_id": "shanyue",
-    "region": "香港",
-    "country": "中国香港",
-    "node_count": 9,
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-2",
-    "airport_id": "shanyue",
-    "region": "日本",
-    "country": "日本",
-    "node_count": 14,
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-3",
-    "airport_id": "shanyue",
-    "region": "台湾",
-    "country": "中国台湾",
-    "node_count": 11,
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-4",
-    "airport_id": "shanyue",
-    "region": "新加坡",
-    "country": "新加坡",
-    "node_count": 16,
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-5",
-    "airport_id": "shanyue",
-    "region": "美国",
-    "country": "美国",
-    "node_count": 15,
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-node-6",
-    "airport_id": "shanyue",
-    "region": "韩国",
-    "country": "韩国",
-    "node_count": 6,
-    "supported": true,
-    "last_checked": "2026-09-16"
   }
 ];
 
@@ -6690,46 +6581,6 @@ export const mockClients: AirportClient[] = [
     "platform": "全平台",
     "supported": true,
     "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-client-1",
-    "airport_id": "shanyue",
-    "client_name": "Clash",
-    "platform": "Windows/macOS/Android",
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-client-2",
-    "airport_id": "shanyue",
-    "client_name": "Shadowrocket",
-    "platform": "iOS",
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-client-3",
-    "airport_id": "shanyue",
-    "client_name": "sing-box",
-    "platform": "全平台",
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-client-4",
-    "airport_id": "shanyue",
-    "client_name": "V2RayN",
-    "platform": "全平台",
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-client-5",
-    "airport_id": "shanyue",
-    "client_name": "Surfboard",
-    "platform": "全平台",
-    "supported": true,
-    "last_checked": "2026-09-16"
   }
 ];
 
@@ -7271,13 +7122,6 @@ export const mockProtocols: AirportProtocol[] = [
     "id": "sujie-proto-3",
     "airport_id": "sujie",
     "protocol_name": "Shadowsocks",
-    "supported": true,
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-proto-1",
-    "airport_id": "shanyue",
-    "protocol_name": "Trojan",
     "supported": true,
     "last_checked": "2026-09-16"
   }
@@ -7935,27 +7779,6 @@ export const mockAISupport: AirportAI[] = [
     "service_name": "Gemini",
     "status": "supported",
     "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-ai-1",
-    "airport_id": "shanyue",
-    "service_name": "ChatGPT",
-    "status": "supported",
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-ai-2",
-    "airport_id": "shanyue",
-    "service_name": "Claude",
-    "status": "supported",
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-ai-3",
-    "airport_id": "shanyue",
-    "service_name": "Gemini",
-    "status": "supported",
-    "last_checked": "2026-09-16"
   }
 ];
 
@@ -8608,27 +8431,6 @@ export const mockStreamingSupport: AirportStreaming[] = [
   {
     "id": "sujie-st-3",
     "airport_id": "sujie",
-    "service_name": "YouTube",
-    "status": "supported",
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-st-1",
-    "airport_id": "shanyue",
-    "service_name": "Netflix",
-    "status": "supported",
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-st-2",
-    "airport_id": "shanyue",
-    "service_name": "Disney+",
-    "status": "supported",
-    "last_checked": "2026-09-16"
-  },
-  {
-    "id": "shanyue-st-3",
-    "airport_id": "shanyue",
     "service_name": "YouTube",
     "status": "supported",
     "last_checked": "2026-09-16"

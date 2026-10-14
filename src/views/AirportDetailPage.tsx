@@ -44,79 +44,11 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
     notFound();
   }
 
-  // 1. 获取已有的关联数据，如无则自动生成智适推导内容（依据规则 V2）
-  const rawPlans = mockPlans.filter(p => p.airport_id === airport.id);
-  const plans = rawPlans.length > 0 ? rawPlans : [
-    {
-      id: `${airport.id}-p1`,
-      airport_id: airport.id,
-      name: '基础体验型套餐',
-      price: parseFloat((parseFloat(airport.price_summary.replace(/[^\d.]/g, '')) || 20).toFixed(2)),
-      currency: 'CNY',
-      billing_period: 'monthly' as const,
-      traffic: airport.traffic_summary || '100 GB / 月',
-      device_limit: airport.pros.some(p => p.includes('不限制')) ? '不限制设备' : '3 台设备',
-      description: '适合日常网页浏览、社交媒体与轻度视频需求',
-      created_at: airport.created_at,
-      updated_at: airport.updated_at
-    },
-    {
-      id: `${airport.id}-p2`,
-      airport_id: airport.id,
-      name: '进阶主力型套餐',
-      price: parseFloat(((parseFloat(airport.price_summary.replace(/[^\d.]/g, '')) || 20) * 2).toFixed(2)),
-      currency: 'CNY',
-      billing_period: 'monthly' as const,
-      traffic: '360 GB / 月',
-      device_limit: airport.pros.some(p => p.includes('不限制')) ? '不限制设备' : '5 台设备',
-      description: '适合高频 4K 视频观赏、大文件传输与主力设备连接',
-      created_at: airport.created_at,
-      updated_at: airport.updated_at
-    },
-    {
-      id: `${airport.id}-p3`,
-      airport_id: airport.id,
-      name: '企业/团队大流量包',
-      price: parseFloat(((parseFloat(airport.price_summary.replace(/[^\d.]/g, '')) || 20) * 4.2).toFixed(2)),
-      currency: 'CNY',
-      billing_period: 'monthly' as const,
-      traffic: '800 GB / 月',
-      device_limit: '不限制设备',
-      description: '适合多设备并发、团队协作与重度下载需求',
-      created_at: airport.created_at,
-      updated_at: airport.updated_at
-    }
-  ];
-
-  const rawNodes = mockNodes.filter(n => n.airport_id === airport.id);
-  const nodes = rawNodes.length > 0 ? rawNodes : [
-    { id: `${airport.id}-n1`, airport_id: airport.id, region: '香港', country: '中国香港', node_count: 15, supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-n2`, airport_id: airport.id, region: '日本', country: '日本', node_count: 10, supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-n3`, airport_id: airport.id, region: '新加坡', country: '新加坡', node_count: 8, supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-n4`, airport_id: airport.id, region: '美国', country: '美国', node_count: 10, supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-n5`, airport_id: airport.id, region: '台湾', country: '中国台湾', node_count: 5, supported: true, last_checked: airport.last_checked }
-  ];
-
-  const rawProtocols = mockProtocols.filter(p => p.airport_id === airport.id);
-  const protocols = rawProtocols.length > 0 ? rawProtocols : [
-    { id: `${airport.id}-pr1`, airport_id: airport.id, protocol_name: airport.line_type.includes('VLESS') ? 'VLESS' : 'Shadowsocks', supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-pr2`, airport_id: airport.id, protocol_name: 'Trojan', supported: true, last_checked: airport.last_checked },
-    { id: `${airport.id}-pr3`, airport_id: airport.id, protocol_name: 'VMess', supported: true, last_checked: airport.last_checked }
-  ];
-
-  const rawAIs = mockAISupport.filter(a => a.airport_id === airport.id);
-  const aiList = rawAIs.length > 0 ? rawAIs : [
-    { id: `${airport.id}-ai1`, airport_id: airport.id, service_name: 'ChatGPT' as const, status: 'supported' as const, last_checked: airport.last_checked },
-    { id: `${airport.id}-ai2`, airport_id: airport.id, service_name: 'Claude' as const, status: 'supported' as const, last_checked: airport.last_checked },
-    { id: `${airport.id}-ai3`, airport_id: airport.id, service_name: 'Gemini' as const, status: 'supported' as const, last_checked: airport.last_checked }
-  ];
-
-  const rawStreaming = mockStreamingSupport.filter(s => s.airport_id === airport.id);
-  const streamingList = rawStreaming.length > 0 ? rawStreaming : [
-    { id: `${airport.id}-s1`, airport_id: airport.id, service_name: 'Netflix' as const, status: 'supported' as const, last_checked: airport.last_checked },
-    { id: `${airport.id}-s2`, airport_id: airport.id, service_name: 'Disney+' as const, status: 'supported' as const, last_checked: airport.last_checked },
-    { id: `${airport.id}-s3`, airport_id: airport.id, service_name: 'YouTube' as const, status: 'supported' as const, last_checked: airport.last_checked }
-  ];
+  const plans = mockPlans.filter(p => p.airport_id === airport.id);
+  const nodes = mockNodes.filter(n => n.airport_id === airport.id);
+  const protocols = mockProtocols.filter(p => p.airport_id === airport.id);
+  const aiList = mockAISupport.filter(a => a.airport_id === airport.id);
+  const streamingList = mockStreamingSupport.filter(s => s.airport_id === airport.id);
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -142,46 +74,11 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
     ]
   };
 
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    'mainEntity': [
-      {
-        '@type': 'Question',
-        'name': `${airport.name} 适合哪些用户群体？`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': `${airport.name} 提供了 ${airport.line_type} 传输路线，适合需要访问跨国流媒体、进行学术科研检索、使用 ChatGPT/Claude AI 工具以及游戏联机的用户。`
-        }
-      },
-      {
-        '@type': 'Question',
-        'name': `${airport.name} 支持哪些客户端软件订阅？`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': `支持标准通用订阅格式，兼容 Clash Verge、Shadowrocket (小火箭)、sing-box、Surge 及 Quantumult X 等主流客户端。`
-        }
-      },
-      {
-        '@type': 'Question',
-        'name': `购买 ${airport.name} 套餐前有哪些注意事项？`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': `建议优先选择月付方案测试本地网络延迟与高峰期稳定性。注意区分周期重置套餐与不限时一次性流量包的设备限制。`
-        }
-      }
-    ]
-  };
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 font-sans">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c') }}
       />
 
       {/* Breadcrumb Navigation */}
@@ -200,7 +97,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             <div className="flex items-center gap-2">
               <span className="text-xs text-blue-600 font-mono tracking-wider uppercase font-semibold">AIRPORT DATABASE RECORD</span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-500">
-                测试数据 / Demo
+                站内资料
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
@@ -214,6 +111,9 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
 
         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-2">
           {airport.description}
+        </p>
+        <p className="text-xs text-slate-600 leading-relaxed">
+          资料摘要：记录的起步价格为 {airport.price_summary}，流量为 {airport.traffic_summary}，线路为 {airport.line_type}。这些是站内收录信息，不代表当前可购买套餐或实时测速结果。
         </p>
 
         {/* 核心特征快捷 Pill */}
@@ -231,13 +131,14 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
 
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100 text-xs text-slate-500">
           <div className="flex flex-wrap items-center gap-3">
-            <div>最后检查日期：<strong className="text-slate-800 font-mono">{airport.last_checked}</strong></div>
+            <div>记录的核对日期：<strong className="text-slate-800 font-mono">{airport.last_checked}</strong></div>
             <span className="text-slate-300">|</span>
             <div>资料核对时间：<strong className="text-slate-800 font-mono">{airport.updated_at}</strong></div>
             <Link href="/updates" className="text-blue-600 font-bold hover:underline inline-flex items-center gap-0.5 ml-1">
               <span>查看最近更新</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
+            <Link href="/methodology" className="text-blue-600 font-bold hover:underline">数据口径与使用说明</Link>
           </div>
           <a
             href={airport.website}
@@ -245,13 +146,13 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-sm transition-all"
           >
-            <span>访问官方网站 (直达入口)</span>
+            <span>访问服务商页面</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
       </div>
 
-      {/* 2. 适合人群与选购建议分析卡片 (规则 V2 推导生成) */}
+      {/* 2. 使用场景与选购建议 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-slate-50/80 border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
           <h2 className="text-sm font-bold text-slate-900 flex items-center gap-2">
@@ -259,18 +160,9 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             <span>适合人群与使用场景分析</span>
           </h2>
           <ul className="text-xs text-slate-600 space-y-2 leading-relaxed">
-            <li className="flex items-start gap-1.5">
-              <span className="text-blue-600 font-bold">•</span>
-              <span><strong>跨境办公与学术科研</strong>：提供高连通率的 BGP / IEPL 专线中转，保障日常 Google 检索与学术文献访问。</span>
-            </li>
-            <li className="flex items-start gap-1.5">
-              <span className="text-blue-600 font-bold">•</span>
-              <span><strong>4K 影视流媒体爱好者</strong>：适配 Netflix、Disney+ 与 YouTube 4K 解锁，满足跨国高清追剧需求。</span>
-            </li>
-            <li className="flex items-start gap-1.5">
-              <span className="text-blue-600 font-bold">•</span>
-              <span><strong>AI 工具深度用户</strong>：原生 IP 节点有助于规避 ChatGPT、Claude 等大模型的地理风控拦截。</span>
-            </li>
+            <li>• 先依据自己的预算、流量需求与可用地区筛选。</li>
+            <li>• 如需 AI 或流媒体服务，查看下方已收录的服务状态，并在购买前自行验证。</li>
+            <li>• 线路、延迟与解锁情况会随地区和时间变化，站内资料不能替代本地实测。</li>
           </ul>
         </div>
 
@@ -317,6 +209,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
               </tr>
             </thead>
             <tbody>
+              {plans.length === 0 && <tr><td colSpan={5} className="py-4 px-3 text-slate-500">暂未收录可核对的套餐明细，请以服务商页面为准。</td></tr>}
               {plans.map((plan) => (
                 <tr key={plan.id} className="border-b border-slate-100 hover:bg-slate-50/60 transition-colors">
                   <td className="py-3 px-3 font-bold text-slate-900">{plan.name}</td>
@@ -341,6 +234,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             <Server className="w-4 h-4 text-blue-600" /> 节点覆盖地区与分布
           </h3>
           <div className="flex flex-wrap gap-2 text-xs">
+            {nodes.length === 0 && <span className="text-slate-500">暂未收录节点数量。</span>}
             {nodes.map(n => (
               <span key={n.id} className="px-3 py-1 bg-slate-100 border border-slate-200 rounded-lg text-slate-800 font-medium">
                 {n.region} ({n.node_count} 节点)
@@ -348,7 +242,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             ))}
           </div>
           <p className="text-[11px] text-slate-400 pt-1">
-            * 包含中国香港、日本、新加坡、美国及中国台湾等核心数据中心节点。
+            * 仅展示站内已收录的地区及节点数量；实际可用节点以服务商订阅为准。
           </p>
         </div>
 
@@ -358,6 +252,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             <ShieldCheck className="w-4 h-4 text-blue-600" /> 支持传输协议
           </h3>
           <div className="flex flex-wrap gap-2 text-xs">
+            {protocols.length === 0 && <span className="text-slate-500">暂未收录协议明细。</span>}
             {protocols.map(p => (
               <span key={p.id} className="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200/80 rounded-lg font-mono font-semibold">
                 {p.protocol_name}
@@ -365,21 +260,22 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
             ))}
           </div>
           <p className="text-[11px] text-slate-400 pt-1">
-            * 采用现代加密协议层，兼顾低握手开销与抗封锁特性。
+            * 协议支持情况可能随套餐和节点不同而变化。
           </p>
         </div>
 
         {/* AI 解锁支持 */}
         <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
           <h3 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-emerald-600" /> AI 大模型解封支持
+            <Sparkles className="w-4 h-4 text-emerald-600" /> AI 服务支持记录
           </h3>
           <div className="space-y-2 text-xs">
+            {aiList.length === 0 && <p className="text-slate-500">暂未收录 AI 服务支持情况。</p>}
             {aiList.map(a => (
               <div key={a.id} className="flex justify-between items-center text-slate-700">
                 <span className="font-medium">{a.service_name}</span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  解封支持 ✓
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  {a.status === 'supported' ? '记录为支持' : a.status === 'unsupported' ? '记录为不支持' : a.status === 'partial' ? '部分支持' : '待核实'}
                 </span>
               </div>
             ))}
@@ -389,14 +285,15 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
         {/* 流媒体解锁支持 */}
         <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
           <h3 className="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-1.5">
-            <Tv className="w-4 h-4 text-indigo-600" /> 4K 流媒体解封支持
+            <Tv className="w-4 h-4 text-indigo-600" /> 流媒体支持记录
           </h3>
           <div className="space-y-2 text-xs">
+            {streamingList.length === 0 && <p className="text-slate-500">暂未收录流媒体支持情况。</p>}
             {streamingList.map(s => (
               <div key={s.id} className="flex justify-between items-center text-slate-700">
                 <span className="font-medium">{s.service_name}</span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  支持 ✓
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  {s.status === 'supported' ? '记录为支持' : s.status === 'unsupported' ? '记录为不支持' : s.status === 'partial' ? '部分支持' : '待核实'}
                 </span>
               </div>
             ))}
@@ -428,7 +325,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
         </div>
       </div>
 
-      {/* 6. 常见问题 FAQ 模块 (规则 V2 补充) */}
+      {/* 6. 常见问题 */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
         <h2 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
           <span>❓</span> {airport.name} 常见问题解答 (FAQ)
@@ -436,23 +333,23 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
 
         <div className="space-y-3 text-xs">
           <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-1">
-            <h3 className="font-bold text-slate-900">Q: {airport.name} 适合哪些客户端软件？</h3>
+            <h3 className="font-bold text-slate-900">Q: {airport.name} 的价格是实时的吗？</h3>
             <p className="text-slate-600 leading-relaxed">
-              A: 支持通用订阅链接规范。无论是 Windows / macOS 平台上的 Clash Verge、Flclash，还是 iOS 平台上的 Shadowrocket (小火箭)、sing-box，均可一键粘贴订阅导入使用。
+              A: 不是。本站记录的起步价格为 {airport.price_summary}，可能与当前结算页不同；购买前请核对服务商页面。
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-1">
-            <h3 className="font-bold text-slate-900">Q: 为什么节点延迟测速低，但打开网页速度变慢？</h3>
+            <h3 className="font-bold text-slate-900">Q: {airport.name} 能稳定使用 AI 或流媒体吗？</h3>
             <p className="text-slate-600 leading-relaxed">
-              A: 客户端中的 ⚡ 延迟测试通常是 ICMP 或 TCP 握手时间，反映的是物理距离。实际打卡速度取决于晚高峰机房的带宽上行吐吞能力。如遇到拥塞，可尝试切换其他备用节点。
+              A: 页面仅展示已收录的服务支持记录，无法保证每个节点、账号或时段都可使用。请先试用并按实际需求验证。
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-1">
-            <h3 className="font-bold text-slate-900">Q: 遇到节点连接 Timeout 或未响应怎么排查？</h3>
+            <h3 className="font-bold text-slate-900">Q: 未列出某个套餐或协议代表不支持吗？</h3>
             <p className="text-slate-600 leading-relaxed">
-              A: 1. 在客户端 Profiles 页面刷新订阅链接；2. 检查电脑/手机系统时间是否开启自动同步；3. 确认客户端是否开启了系统代理 (System Proxy) 或 TUN 模式。
+              A: 不代表。未列出说明站内尚未收录对应字段，可向服务商确认。<Link href="/methodology" className="text-blue-600 hover:underline">查看数据口径</Link>。
             </p>
           </div>
         </div>
@@ -470,7 +367,7 @@ export default function AirportDetailPage({ slug }: AirportDetailPageProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {mockArticles.slice(0, 4).map(art => (
+          {mockArticles.filter(art => art.type === 'guide').slice(0, 4).map(art => (
             <Link
               key={art.id}
               href={`/guides/${art.slug}`}

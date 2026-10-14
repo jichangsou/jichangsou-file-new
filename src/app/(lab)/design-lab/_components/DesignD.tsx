@@ -406,7 +406,7 @@ export default function DesignD() {
                         </div>
                       </div>
                       <span className="font-mono font-bold text-blue-600 text-xs bg-blue-50 px-2 py-0.5 rounded border border-blue-100 shrink-0">
-                        {ap.rating}
+                        正常
                       </span>
                     </Link>
                   ))}
@@ -441,7 +441,7 @@ export default function DesignD() {
                         </div>
                       </div>
                       <span className="font-mono font-bold text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
-                        {ap.rating}
+                        {ap.price_summary.split('/')[0]}
                       </span>
                     </Link>
                   ))}
